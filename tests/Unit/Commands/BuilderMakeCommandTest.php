@@ -37,7 +37,7 @@ it('can generate builder file with namespace', function () {
     $this->assertFilenameNotExists('app/Models/Builders/FooBuilder.php');
 });
 
-it('can generate builder file with model option', function () : void {
+it('can generate builder file with model option', function (): void {
     $this->artisan('make:builder', ['name' => 'FooBuilder', '--model' => 'Foo'])
         ->assertExitCode(0);
 
