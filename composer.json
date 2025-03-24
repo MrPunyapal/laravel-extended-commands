@@ -53,7 +53,6 @@
         "test:lint": "pint --test",
         "test:types": "phpstan analyse",
         "test:arch": "pest --filter=arch",
-        "test:type-coverage": "pest --type-coverage --min=100",
         "test:unit": "pest --parallel --coverage --min=100",
         "test": [
             "@test:lint",
