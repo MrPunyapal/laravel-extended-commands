@@ -2,6 +2,7 @@
 
 namespace MrPunyapal\LaravelExtendedCommands;
 
+use MrPunyapal\LaravelExtendedCommands\Commands\BuilderMakeCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -16,6 +17,7 @@ class LaravelExtendedCommandsServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-extended-commands')
-            ->hasConfigFile();
+            ->hasConfigFile()
+            ->hasCommand(BuilderMakeCommand::class);
     }
 }

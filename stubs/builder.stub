@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Builder;
+
+{{ modelPhpdoc }}
+class {{ class }} extends Builder
+{
+    //
+}
