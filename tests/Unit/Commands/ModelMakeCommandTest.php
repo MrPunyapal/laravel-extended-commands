@@ -30,6 +30,10 @@ it('can generate model with builder', function (): void {
     $this->assertFileContains([
         'namespace App\Models;',
         'class Foo extends Model',
+        'use App\Models\Builders\FooBuilder;',
+        '@return FooBuilder<Foo>',
+        'public function newEloquentBuilder($query): FooBuilder',
+        'return new FooBuilder($query);',
     ], 'app/Models/Foo.php');
 
     $this->assertFileContains([

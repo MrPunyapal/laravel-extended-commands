@@ -21,6 +21,36 @@ class ModelMakeCommand extends BaseCommand
     }
 
     /**
+     * @inheritdoc
+     */
+    protected function getStub()
+    {
+        return $this->resolveStubPath('/../../stubs/model.stub');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function resolveStubPath($stub)
+    {
+        return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
+            ? $customPath
+            : __DIR__.$stub;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function buildClass($name)
+    {
+        $replace = $this->buildBuilderReplacements();
+
+        return str_replace(
+            array_keys($replace), array_values($replace), parent::buildClass($name)
+        );
+    }
+
+    /**
      * Create a builder file for the model.
      *
      * @return void
@@ -33,6 +63,51 @@ class ModelMakeCommand extends BaseCommand
             'name' => "{$builder}Builder",
             '--model' => '\\'.$this->qualifyClass($this->getNameInput()),
         ]);
+    }
+
+    /**
+     * Build the replacements for a builder.
+     *
+     * @return array<string, string>
+     */
+    protected function buildBuilderReplacements()
+    {
+        $replacements = [];
+
+        if ($this->option('builder') || $this->option('all')) {
+            $modelPath = Str::of($this->argument('name'))->studly()->replace('/', '\\')->toString();
+
+            $builderNamespace = 'App\\Models\\Builders\\'.$modelPath.'Builder';
+            $builderClass = Str::of($builderNamespace)->afterLast('\\')->toString();
+
+            $builderCode = <<<EOT
+            /**
+                 * Create a new Eloquent query builder for the model.
+                 *
+                 * @param  \Illuminate\Database\Query\Builder \$query
+                 * @return $builderClass<$modelPath>
+                 */
+                public function newEloquentBuilder(\$query): $builderClass
+                {
+                    return new $builderClass(\$query);
+                }
+            EOT;
+            
+            $replacements['{{ newBuilderFunction }}'] = $builderCode;
+            $replacements['{{ builderImport }}'] = "use $builderNamespace;";
+
+            if(! $this->option('factory')){
+                $replacements["//\n"] = '';
+                $replacements["//\r\n"] = '';
+            }
+        } else {
+            $replacements["{{ newBuilderFunction }}\n"] = '';
+            $replacements["{{ newBuilderFunction }}\r\n"] = '';
+            $replacements["{{ builderImport }}\n"] = '';
+            $replacements["{{ builderImport }}\r\n"] = '';
+        }
+
+        return $replacements;
     }
 
     /**
