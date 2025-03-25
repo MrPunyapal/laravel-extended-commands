@@ -1,4 +1,4 @@
-# This package will have some commands which are not available in laravel.
+# This package has some commands which are not available in laravel.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mrpunyapal/laravel-extended-commands.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-extended-commands)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mrpunyapal/laravel-extended-commands/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mrpunyapal/laravel-extended-commands/actions?query=workflow%3Arun-tests+branch%3Amain)
