@@ -36,8 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MrPunyapal\\LaravelExtendedCommands\\": "src/",
-            "MrPunyapal\\LaravelExtendedCommands\\Database\\Factories\\": "database/factories/"
+            "MrPunyapal\\LaravelExtendedCommands\\": "src/"
         }
     },
     "autoload-dev": {
