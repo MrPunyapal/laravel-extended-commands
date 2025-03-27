@@ -6,7 +6,8 @@
         "laravel",
         "laravel-extended-commands",
         "make Builder",
-        "make commands"
+        "make commands",
+        "dev"
     ],
     "homepage": "https://github.com/mrpunyapal/laravel-extended-commands",
     "license": "MIT",
