@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## 1.2.0 - 2025-12-08
+
+### What's Changed
+
+* Feat: add make:action command by @MrPunyapal in https://github.com/MrPunyapal/laravel-extended-commands/pull/2
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-extended-commands/compare/1.1.0...1.2.0
+
 ## 1.1.0 -  PHP 8.5 - 2025-12-08
 
 ### What's Changed
