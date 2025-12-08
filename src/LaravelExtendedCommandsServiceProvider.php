@@ -4,6 +4,7 @@ namespace MrPunyapal\LaravelExtendedCommands;
 
 use MrPunyapal\LaravelExtendedCommands\Commands\BuilderMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\ModelMakeCommand;
+use MrPunyapal\LaravelExtendedCommands\Commands\ActionMakeCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -22,6 +23,7 @@ class LaravelExtendedCommandsServiceProvider extends PackageServiceProvider
             ->hasCommands([
                 BuilderMakeCommand::class,
                 ModelMakeCommand::class,
+                ActionMakeCommand::class,
             ]);
 
         $this->app->extend('command.model.make', function ($app) {
