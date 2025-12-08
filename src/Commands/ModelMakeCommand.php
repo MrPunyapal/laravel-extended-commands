@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 class ModelMakeCommand extends BaseCommand
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function handle()
     {
@@ -21,7 +21,7 @@ class ModelMakeCommand extends BaseCommand
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function getStub()
     {
@@ -29,7 +29,7 @@ class ModelMakeCommand extends BaseCommand
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function resolveStubPath($stub)
     {
@@ -39,7 +39,7 @@ class ModelMakeCommand extends BaseCommand
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function buildClass($name)
     {
@@ -92,11 +92,11 @@ class ModelMakeCommand extends BaseCommand
                     return new $builderClass(\$query);
                 }
             EOT;
-            
+
             $replacements['{{ newBuilderFunction }}'] = $builderCode;
             $replacements['{{ builderImport }}'] = "use $builderNamespace;";
 
-            if(! $this->option('factory')){
+            if (! $this->option('factory')) {
                 $replacements["//\n"] = '';
                 $replacements["//\r\n"] = '';
             }
@@ -111,7 +111,7 @@ class ModelMakeCommand extends BaseCommand
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected function getOptions()
     {
