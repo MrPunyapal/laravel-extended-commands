@@ -2,9 +2,9 @@
 
 namespace MrPunyapal\LaravelExtendedCommands;
 
+use MrPunyapal\LaravelExtendedCommands\Commands\ActionMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\BuilderMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\ModelMakeCommand;
-use MrPunyapal\LaravelExtendedCommands\Commands\ActionMakeCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
