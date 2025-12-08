@@ -45,6 +45,26 @@ php artisan make:builder {name} --model={model}
 php artisan make:model {name} --builder
 ```
 
+### Make Action
+
+Create a new action class. By default the class is generated into the `App\Actions` namespace and contains a `handle()` method.
+
+```bash
+php artisan make:action {name}
+```
+
+Create an invokable action (generates an `__invoke` method):
+
+```bash
+php artisan make:action {name} --invokable
+```
+
+Force overwrite an existing action file:
+
+```bash
+php artisan make:action {name} --force
+```
+
 ## Testing
 
 ```bash
