@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## 1.2.1 - 2025-12-09
+
+### What's Changed
+
+* feat: add make:concern and make:contract by @MrPunyapal in https://github.com/MrPunyapal/laravel-extended-commands/pull/3
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-extended-commands/compare/1.2.0...1.2.1
+
 ## 1.2.0 - 2025-12-08
 
 ### What's Changed
