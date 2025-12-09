@@ -65,6 +65,34 @@ Force overwrite an existing action file:
 php artisan make:action {name} --force
 ```
 
+### Make Concern
+
+Create a new concern (trait). By default the trait is generated into the `App\\Concerns` namespace.
+
+```bash
+php artisan make:concern {name}
+```
+
+Force overwrite an existing concern file:
+
+```bash
+php artisan make:concern {name} --force
+```
+
+### Make Contract
+
+Create a new contract (interface). By default the interface is generated into the `App\\Contracts` namespace.
+
+```bash
+php artisan make:contract {name}
+```
+
+Force overwrite an existing contract file:
+
+```bash
+php artisan make:contract {name} --force
+```
+
 ## Testing
 
 ```bash
