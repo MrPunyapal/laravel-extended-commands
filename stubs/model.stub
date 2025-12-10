@@ -4,6 +4,7 @@ namespace {{ namespace }};
 
 {{ factoryImport }}
 {{ builderImport }}
+{{ collectionImport }}
 use Illuminate\Database\Eloquent\Model;
 
 class {{ class }} extends Model
@@ -11,4 +12,6 @@ class {{ class }} extends Model
     {{ factory }}
 
     {{ newBuilderFunction }}
+
+    {{ newCollectionFunction }}
 }
