@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Collection;
+
+{{ modelPhpdoc }}
+class {{ class }} extends Collection
+{
+    //
+}
