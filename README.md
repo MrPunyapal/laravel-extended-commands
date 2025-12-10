@@ -39,6 +39,29 @@ php artisan make:builder {name}
 php artisan make:builder {name} --model={model}
 ```
 
+### Make Collection
+
+Create a new Eloquent custom collection class. By default the class is generated into the `App\Models\Collections` namespace and extends `Illuminate\Database\Eloquent\Collection`.
+
+```bash
+php artisan make:collection {name}
+```
+
+Create a collection with a model generic PHPDoc (adds `@template` and `@extends` in the generated class):
+
+```bash
+php artisan make:collection {name} --model={model}
+```
+
+When generating a model you can also scaffold a collection for it and inject a `newCollection()` method into the model using the `--collection` flag:
+
+```bash
+php artisan make:model {name} --collection
+```
+
+This will generate `App\Models\Collections\{Name}Collection` and add a `newCollection(array $models = [])` method to the model which returns the new collection instance.
+
+
 ### Make Model with Builder
 
 ```bash
