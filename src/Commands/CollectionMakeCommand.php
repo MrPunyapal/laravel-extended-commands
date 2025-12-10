@@ -109,7 +109,7 @@ class CollectionMakeCommand extends GeneratorCommand
             /**
              * @template TModel of $modelNamespace
              *
-             * @extends \Illuminate\Database\Eloquent\Collection<$modelNamespace>
+             * @extends Collection<$modelNamespace>
              */
             EOT;
         } else {
