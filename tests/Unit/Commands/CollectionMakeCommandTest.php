@@ -45,6 +45,6 @@ it('can generate collection file with model option', function (): void {
         'namespace App\Models\Collections;',
         'class FooCollection extends Collection',
         '@template TModel of Foo',
-        '@extends \\Illuminate\\Database\\Eloquent\\Collection<Foo>',
+        '@extends Collection<Foo>',
     ], 'app/Models/Collections/FooCollection.php');
 });
