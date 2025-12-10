@@ -145,7 +145,7 @@ class ModelMakeCommand extends BaseCommand
             $modelPath = Str::of($this->argument('name'))->studly()->replace('/', '\\')->toString();
 
             $collectionNamespace = 'App\\Models\\Collections\\'.$modelPath.'Collection';
-                $collectionClass = Str::of($collectionNamespace)->afterLast('\\')->toString();
+            $collectionClass = Str::of($collectionNamespace)->afterLast('\\')->toString();
 
             $collectionCode = <<<EOT
             /**
