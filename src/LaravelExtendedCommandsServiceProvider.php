@@ -4,6 +4,7 @@ namespace MrPunyapal\LaravelExtendedCommands;
 
 use MrPunyapal\LaravelExtendedCommands\Commands\ActionMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\BuilderMakeCommand;
+use MrPunyapal\LaravelExtendedCommands\Commands\CollectionMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\ConcernMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\ContractMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\ModelMakeCommand;
@@ -28,6 +29,7 @@ class LaravelExtendedCommandsServiceProvider extends PackageServiceProvider
                 ActionMakeCommand::class,
                 ConcernMakeCommand::class,
                 ContractMakeCommand::class,
+                CollectionMakeCommand::class,
             ]);
 
         $this->app->extend('command.model.make', function ($app) {
