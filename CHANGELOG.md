@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## 1.2.2 - 2025-12-10
+
+### What's Changed
+
+* Feat: add `make:collection` command by @MrPunyapal in https://github.com/MrPunyapal/laravel-extended-commands/pull/4
+* Feat: add collection flag to model by @MrPunyapal in https://github.com/MrPunyapal/laravel-extended-commands/pull/5
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-extended-commands/compare/1.2.1...1.2.2
+
 ## 1.2.1 - 2025-12-09
 
 ### What's Changed
