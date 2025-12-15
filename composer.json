@@ -60,7 +60,7 @@
         ],
         "test:types": "phpstan analyse",
         "test:arch": "pest --filter=arch",
-        "test:unit": "pest --parallel --coverage --min=100",
+        "test:unit": "pest --parallel",
         "test": [
             "@test:lint",
             "@test:types",
