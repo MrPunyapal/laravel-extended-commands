@@ -4,14 +4,14 @@ use Orchestra\Testbench\Concerns\InteractsWithPublishedFiles;
 
 uses(InteractsWithPublishedFiles::class);
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->files = [
         'app/Actions/FooAction.php',
         'app/Actions/Foo/BarAction.php',
     ];
 });
 
-it('can generate action file', function () {
+it('can generate action file', function (): void {
     $this->artisan('make:action', ['name' => 'FooAction'])
         ->assertExitCode(0);
 
@@ -24,7 +24,7 @@ it('can generate action file', function () {
     $this->assertFilenameNotExists('app/Actions/Foo/BarAction.php');
 });
 
-it('can generate action file with namespace', function () {
+it('can generate action file with namespace', function (): void {
     $this->artisan('make:action', ['name' => 'Foo\\BarAction'])
         ->assertExitCode(0);
 
@@ -36,7 +36,7 @@ it('can generate action file with namespace', function () {
     $this->assertFilenameNotExists('app/Actions/FooAction.php');
 });
 
-it('can generate invokable action when option provided', function () {
+it('can generate invokable action when option provided', function (): void {
     $this->artisan('make:action', ['name' => 'FooAction', '--invokable' => true])
         ->assertExitCode(0);
 

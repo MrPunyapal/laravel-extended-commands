@@ -2,6 +2,7 @@
 
 namespace MrPunyapal\LaravelExtendedCommands\Commands;
 
+use Override;
 use Illuminate\Foundation\Console\ModelMakeCommand as BaseCommand;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
@@ -11,7 +12,8 @@ class ModelMakeCommand extends BaseCommand
     /**
      * {@inheritDoc}
      */
-    public function handle()
+    #[Override]
+    public function handle(): void
     {
         parent::handle();
 
@@ -27,6 +29,7 @@ class ModelMakeCommand extends BaseCommand
     /**
      * {@inheritdoc}
      */
+    #[Override]
     protected function getStub()
     {
         return $this->resolveStubPath('/../../stubs/model.stub');
@@ -35,6 +38,7 @@ class ModelMakeCommand extends BaseCommand
     /**
      * {@inheritdoc}
      */
+    #[Override]
     protected function resolveStubPath($stub)
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
@@ -45,6 +49,7 @@ class ModelMakeCommand extends BaseCommand
     /**
      * {@inheritdoc}
      */
+    #[Override]
     protected function buildClass($name)
     {
         $replace = array_merge(
@@ -92,7 +97,7 @@ class ModelMakeCommand extends BaseCommand
      *
      * @return array<string, string>
      */
-    protected function buildBuilderReplacements()
+    protected function buildBuilderReplacements(): array
     {
         $replacements = [];
 
@@ -137,7 +142,7 @@ class ModelMakeCommand extends BaseCommand
      *
      * @return array<string, string>
      */
-    protected function buildCollectionReplacements()
+    protected function buildCollectionReplacements(): array
     {
         $replacements = [];
 
@@ -180,6 +185,7 @@ class ModelMakeCommand extends BaseCommand
     /**
      * {@inheritDoc}
      */
+    #[Override]
     protected function getOptions()
     {
         return array_merge(parent::getOptions(), [

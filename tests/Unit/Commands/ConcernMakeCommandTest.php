@@ -4,14 +4,14 @@ use Orchestra\Testbench\Concerns\InteractsWithPublishedFiles;
 
 uses(InteractsWithPublishedFiles::class);
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->files = [
         'app/Concerns/FooConcern.php',
         'app/Concerns/Foo/BarConcern.php',
     ];
 });
 
-it('can generate concern file', function () {
+it('can generate concern file', function (): void {
     $this->artisan('make:concern', ['name' => 'FooConcern'])
         ->assertExitCode(0);
 
@@ -23,7 +23,7 @@ it('can generate concern file', function () {
     $this->assertFilenameNotExists('app/Concerns/Foo/BarConcern.php');
 });
 
-it('can generate concern file with namespace', function () {
+it('can generate concern file with namespace', function (): void {
     $this->artisan('make:concern', ['name' => 'Foo\\BarConcern'])
         ->assertExitCode(0);
 

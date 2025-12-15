@@ -4,14 +4,14 @@ use Orchestra\Testbench\Concerns\InteractsWithPublishedFiles;
 
 uses(InteractsWithPublishedFiles::class);
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->files = [
         'app/Models/Builders/FooBuilder.php',
         'app/Models/Builders/Foo/BarBuilder.php',
     ];
 });
 
-it('can generate builder file', function () {
+it('can generate builder file', function (): void {
     $this->artisan('make:builder', ['name' => 'FooBuilder'])
         ->assertExitCode(0);
 
@@ -24,7 +24,7 @@ it('can generate builder file', function () {
     $this->assertFilenameNotExists('app/Models/Builders/Foo/BarBuilder.php');
 });
 
-it('can generate builder file with namespace', function () {
+it('can generate builder file with namespace', function (): void {
     $this->artisan('make:builder', ['name' => 'Foo\BarBuilder'])
         ->assertExitCode(0);
 

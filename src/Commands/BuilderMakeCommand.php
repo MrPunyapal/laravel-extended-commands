@@ -2,6 +2,8 @@
 
 namespace MrPunyapal\LaravelExtendedCommands\Commands;
 
+use Override;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
@@ -36,6 +38,7 @@ class BuilderMakeCommand extends GeneratorCommand
      * @param  string  $rawName
      * @return bool
      */
+    #[Override]
     protected function alreadyExists($rawName)
     {
         return class_exists($rawName) ||
@@ -55,10 +58,9 @@ class BuilderMakeCommand extends GeneratorCommand
     /**
      * Resolve the fully-qualified path to the stub.
      *
-     * @param  string  $stub
      * @return string
      */
-    protected function resolveStubPath($stub)
+    protected function resolveStubPath(string $stub)
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
@@ -71,6 +73,7 @@ class BuilderMakeCommand extends GeneratorCommand
      * @param  string  $rootNamespace
      * @return string
      */
+    #[Override]
     protected function getDefaultNamespace($rootNamespace)
     {
         return $rootNamespace.'\Models\Builders';
@@ -82,8 +85,9 @@ class BuilderMakeCommand extends GeneratorCommand
      * @param  string  $name
      * @return string
      *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
      */
+    #[Override]
     protected function buildClass($name)
     {
         $replace = $this->buildModelReplacements();
@@ -98,7 +102,7 @@ class BuilderMakeCommand extends GeneratorCommand
      *
      * @return array<string, string>
      */
-    protected function buildModelReplacements()
+    protected function buildModelReplacements(): array
     {
         $replacements = [];
 

@@ -4,14 +4,14 @@ use Orchestra\Testbench\Concerns\InteractsWithPublishedFiles;
 
 uses(InteractsWithPublishedFiles::class);
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->files = [
         'app/Models/Collections/FooCollection.php',
         'app/Models/Collections/Foo/BarCollection.php',
     ];
 });
 
-it('can generate collection file', function () {
+it('can generate collection file', function (): void {
     $this->artisan('make:collection', ['name' => 'FooCollection'])
         ->assertExitCode(0);
 
@@ -24,7 +24,7 @@ it('can generate collection file', function () {
     $this->assertFilenameNotExists('app/Models/Collections/Foo/BarCollection.php');
 });
 
-it('can generate collection file with namespace', function () {
+it('can generate collection file with namespace', function (): void {
     $this->artisan('make:collection', ['name' => 'Foo\\BarCollection'])
         ->assertExitCode(0);
 

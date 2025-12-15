@@ -4,7 +4,7 @@ use Orchestra\Testbench\Concerns\InteractsWithPublishedFiles;
 
 uses(InteractsWithPublishedFiles::class);
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->files = [
         'app/Models/Foo.php',
         'app/Models/Builders/FooBuilder.php',
@@ -12,7 +12,7 @@ beforeEach(function () {
     ];
 });
 
-it('can generate model file', function () {
+it('can generate model file', function (): void {
     $this->artisan('make:model', ['name' => 'Foo'])
         ->assertExitCode(0);
 

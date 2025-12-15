@@ -4,14 +4,14 @@ use Orchestra\Testbench\Concerns\InteractsWithPublishedFiles;
 
 uses(InteractsWithPublishedFiles::class);
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->files = [
         'app/Contracts/FooContract.php',
         'app/Contracts/Foo/BarContract.php',
     ];
 });
 
-it('can generate contract file', function () {
+it('can generate contract file', function (): void {
     $this->artisan('make:contract', ['name' => 'FooContract'])
         ->assertExitCode(0);
 
@@ -23,7 +23,7 @@ it('can generate contract file', function () {
     $this->assertFilenameNotExists('app/Contracts/Foo/BarContract.php');
 });
 
-it('can generate contract file with namespace', function () {
+it('can generate contract file with namespace', function (): void {
     $this->artisan('make:contract', ['name' => 'Foo\\BarContract'])
         ->assertExitCode(0);
 
