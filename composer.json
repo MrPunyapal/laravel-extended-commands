@@ -61,7 +61,13 @@
         ],
         "test:types": "phpstan analyse",
         "test:arch": "pest --filter=arch",
-        "test": "pest --parallel"
+        "test:unit": "pest --parallel --coverage --min=100",
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:type-coverage",
+            "@test:unit"
+        ]
     },
     "config": {
         "sort-packages": true,
