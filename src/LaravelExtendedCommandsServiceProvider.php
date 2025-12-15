@@ -32,6 +32,6 @@ class LaravelExtendedCommandsServiceProvider extends PackageServiceProvider
                 CollectionMakeCommand::class,
             ]);
 
-        $this->app->extend('command.model.make', fn(array $app): ModelMakeCommand => new ModelMakeCommand($app['files']));
+        $this->app->extend('command.model.make', fn (array $app): ModelMakeCommand => new ModelMakeCommand($app['files']));
     }
 }

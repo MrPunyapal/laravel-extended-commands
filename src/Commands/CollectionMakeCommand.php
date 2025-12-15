@@ -2,9 +2,9 @@
 
 namespace MrPunyapal\LaravelExtendedCommands\Commands;
 
-use Override;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 

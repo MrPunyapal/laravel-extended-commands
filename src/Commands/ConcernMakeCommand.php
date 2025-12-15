@@ -2,8 +2,8 @@
 
 namespace MrPunyapal\LaravelExtendedCommands\Commands;
 
-use Override;
 use Illuminate\Console\GeneratorCommand;
+use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 

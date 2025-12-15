@@ -2,10 +2,10 @@
 
 namespace MrPunyapal\LaravelExtendedCommands\Tests;
 
-use Override;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use MrPunyapal\LaravelExtendedCommands\LaravelExtendedCommandsServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Override;
 
 class TestCase extends Orchestra
 {

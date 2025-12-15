@@ -2,9 +2,9 @@
 
 namespace MrPunyapal\LaravelExtendedCommands\Commands;
 
-use Override;
 use Illuminate\Foundation\Console\ModelMakeCommand as BaseCommand;
 use Illuminate\Support\Str;
+use Override;
 use Symfony\Component\Console\Input\InputOption;
 
 class ModelMakeCommand extends BaseCommand
