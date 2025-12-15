@@ -5,15 +5,17 @@ namespace MrPunyapal\LaravelExtendedCommands\Tests;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use MrPunyapal\LaravelExtendedCommands\LaravelExtendedCommandsServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Override;
 
 class TestCase extends Orchestra
 {
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Punyapal Shah\\LaravelExtendedCommands\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName): string => 'Punyapal Shah\\LaravelExtendedCommands\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
@@ -24,7 +26,7 @@ class TestCase extends Orchestra
         ];
     }
 
-    public function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app): void
     {
         config()->set('database.default', 'testing');
 

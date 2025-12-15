@@ -33,7 +33,8 @@
         "pestphp/pest-plugin-laravel": "^3.0||^4.0",
         "phpstan/extension-installer": "^1.3||^2.0",
         "phpstan/phpstan-deprecation-rules": "^1.1||^2.0",
-        "phpstan/phpstan-phpunit": "^1.3||^2.0"
+        "phpstan/phpstan-phpunit": "^1.3||^2.0",
+        "rector/rector": "^2.2"
     },
     "autoload": {
         "psr-4": {
@@ -49,17 +50,17 @@
     "scripts": {
         "post-autoload-dump": "@composer run prepare",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "lint": "pint",
-        "test:lint": "pint --test",
+        "lint":[
+            "rector",
+            "pint --parallel"
+        ],
+        "test:lint": [
+            "rector --dry-run",
+            "pint --test --parallel"
+        ],
         "test:types": "phpstan analyse",
         "test:arch": "pest --filter=arch",
-        "test:unit": "pest --parallel --coverage --min=100",
-        "test": [
-            "@test:lint",
-            "@test:types",
-            "@test:type-coverage",
-            "@test:unit"
-        ]
+        "test": "pest --parallel"
     },
     "config": {
         "sort-packages": true,

@@ -3,6 +3,7 @@
 namespace MrPunyapal\LaravelExtendedCommands\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -36,6 +37,7 @@ class ContractMakeCommand extends GeneratorCommand
      * @param  string  $rawName
      * @return bool
      */
+    #[Override]
     protected function alreadyExists($rawName)
     {
         return class_exists($rawName) ||
@@ -55,10 +57,9 @@ class ContractMakeCommand extends GeneratorCommand
     /**
      * Resolve the fully-qualified path to the stub.
      *
-     * @param  string  $stub
      * @return string
      */
-    protected function resolveStubPath($stub)
+    protected function resolveStubPath(string $stub)
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
@@ -71,6 +72,7 @@ class ContractMakeCommand extends GeneratorCommand
      * @param  string  $rootNamespace
      * @return string
      */
+    #[Override]
     protected function getDefaultNamespace($rootNamespace)
     {
         return $rootNamespace.'\\Contracts';
