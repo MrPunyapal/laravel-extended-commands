@@ -50,8 +50,14 @@
     "scripts": {
         "post-autoload-dump": "@composer run prepare",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "lint": "pint",
-        "test:lint": "pint --test",
+        "lint":[
+            "rector",
+            "pint --parallel"
+        ],
+        "test:lint": [
+            "rector --dry-run",
+            "pint --test --parallel"
+        ],
         "test:types": "phpstan analyse",
         "test:arch": "pest --filter=arch",
         "test:unit": "pest --parallel --coverage --min=100",
