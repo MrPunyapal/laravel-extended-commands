@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## 1.2.3 - 2025-12-15
+
+### What's Changed
+
+* Feat: add rector by @MrPunyapal in https://github.com/MrPunyapal/laravel-extended-commands/pull/6
+* Feat/add rector pest by @MrPunyapal in https://github.com/MrPunyapal/laravel-extended-commands/pull/7
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-extended-commands/compare/1.2.2...1.2.3
+
 ## 1.2.2 - 2025-12-10
 
 ### What's Changed
