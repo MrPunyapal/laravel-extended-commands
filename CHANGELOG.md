@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## 1.3.0 - 2025-12-30
+
+### What's Changed
+
+* - Added New Command as a Facade maker ✅ by @vivek-mistry in https://github.com/MrPunyapal/laravel-extended-commands/pull/9
+  
+
+### New Contributors
+
+* @vivek-mistry made their first contribution in https://github.com/MrPunyapal/laravel-extended-commands/pull/9
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-extended-commands/compare/1.2.3...1.3.0
+
 ## 1.2.3 - 2025-12-15
 
 ### What's Changed
