@@ -7,14 +7,14 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Pluralizer;
 use Illuminate\Filesystem\Filesystem;
 
-class FacadeMakerCommand extends Command
+class FacadeMakeCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:facade-maker {facadeName?} {facadeServiceClass?}';
+    protected $signature = 'make:facade {facadeName?} {facadeServiceClass?}';
 
     /**
      * The console command description.
