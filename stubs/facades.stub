@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+use Illuminate\Support\Facades\Facade;
+
+class $CLASS_NAME$ extends Facade
+{
+    protected static function getFacadeAccessor(): mixed{
+        return "$SERVICE_CLASS_NAME$";
+    }
+}

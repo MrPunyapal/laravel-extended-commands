@@ -1,0 +1,16 @@
+<?php
+
+declare(strict_types=1);
+
+namespace $NAMESPACE$;
+
+class $CLASS_NAME$
+{
+    /**
+     * Start to make a functions & enojoy!
+     */
+    public static function startToMakingFunction()
+    {
+        // Write a codes
+    }
+}
