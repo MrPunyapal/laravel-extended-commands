@@ -2,11 +2,13 @@
 
 namespace MrPunyapal\LaravelExtendedCommands\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
-use Illuminate\Support\Pluralizer;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Pluralizer;
+use Illuminate\Support\Str;
+use Symfony\Component\Console\Attribute\AsCommand;
 
+#[AsCommand(name: 'make:facade')]
 class FacadeMakeCommand extends Command
 {
     /**
@@ -24,32 +26,26 @@ class FacadeMakeCommand extends Command
     protected $description = 'This command is used to create a new facade.';
 
     /**
-     * Filesystem instance
-     *
-     * @var Filesystem
-     */
-    protected $files;
-
-    /**
      * Create a new command instance.
      */
-    public function __construct(Filesystem $files)
+    public function __construct(/**
+     * Filesystem instance
+     */
+        protected Filesystem $files)
     {
         parent::__construct();
-
-        $this->files = $files;
     }
 
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         $argument_name_facade = 'facadeName';
         $facadeName = $this->getArgumentValueAndValidation($argument_name_facade, 'Enter FacadeName (ex. FileUpload)');
 
         $argument_name_facade_service_class = 'facadeServiceClass';
-        $facadeServiceClass = $this->getArgumentValueAndValidation($argument_name_facade_service_class, 'Enter FacadeServiceClass (ex. CommonFileUpload)'); 
+        $facadeServiceClass = $this->getArgumentValueAndValidation($argument_name_facade_service_class, 'Enter FacadeServiceClass (ex. CommonFileUpload)');
 
         $facadepath = $this->getValidatePath('Facades/', $facadeName);
         $facadeServicePath = $this->getValidatePath('Facades/Services/', $facadeServiceClass);
@@ -73,7 +69,7 @@ class FacadeMakeCommand extends Command
          */
         $this->generateFacadeClass($facadepath, $facadeServicePath, $facadeName, $facadeServiceClass);
         $this->generateFacadeServiceClass($facadepath, $facadeServicePath, $facadeName, $facadeServiceClass);
-        $this->info("Facades Created");
+        $this->info('Facades Created');
 
         $this->info('AppServiceProvider register the code and start');
         $this->info('$this->app->singleton("'.Str::lower($facadeServiceClass).'", function ($app) {
@@ -81,24 +77,23 @@ class FacadeMakeCommand extends Command
         });');
     }
 
-    
-    public function getValidatePath($path, $filename)
+    public function getValidatePath(string $path, string $filename): string
     {
-        return app_path($path . $filename . '.php');
+        return app_path($path.$filename.'.php');
     }
 
     protected function getArgumentValueAndValidation($argument_name_facade, $message): string
     {
         $name = $this->argument($argument_name_facade);
-        
+
         while (empty($name)) {
             $name = $this->ask($message);
-            
+
             if (empty($name)) {
-                $this->error("This is required Field!");
+                $this->error('This is required Field!');
             }
         }
-        
+
         return $name;
     }
 
@@ -107,10 +102,8 @@ class FacadeMakeCommand extends Command
         $stubsVariable = [
             'NAMESPACE' => 'App\\Facades',
             'CLASS_NAME' => ucwords(Pluralizer::singular($facadeName)),
-            'SERVICE_CLASS_NAME' => Str::lower($facadeServiceClass)
+            'SERVICE_CLASS_NAME' => Str::lower($facadeServiceClass),
         ];
-
-        
 
         $facadeStubsPath = __DIR__.'/../../stubs/facades.stub';
 
@@ -133,13 +126,12 @@ class FacadeMakeCommand extends Command
         $this->files->put($facadeServicePath, $contents);
     }
 
-
-    public function getStubContents($stub, $stubVariables = [])
+    public function getStubContents($stub, $stubVariables = []): string|array|false
     {
         $contents = file_get_contents($stub);
 
         foreach ($stubVariables as $search => $replace) {
-            $contents = str_replace('$' . $search . '$', $replace, $contents);
+            $contents = str_replace('$'.$search.'$', $replace, $contents);
         }
 
         return $contents;
