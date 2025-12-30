@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use RectorPest\Set\PestLevelSetList;
 use RectorPest\Set\PestSetList;
 
 return RectorConfig::configure()
@@ -20,6 +21,7 @@ return RectorConfig::configure()
     )
     ->withSets([
         PestSetList::PEST_CODE_QUALITY,
+        PestLevelSetList::UP_TO_PEST_30,
     ])
     ->withPhpSets()
     ->withImportNames();

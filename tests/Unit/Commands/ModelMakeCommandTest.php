@@ -2,7 +2,7 @@
 
 use Orchestra\Testbench\Concerns\InteractsWithPublishedFiles;
 
-uses(InteractsWithPublishedFiles::class);
+pest()->use(InteractsWithPublishedFiles::class);
 
 beforeEach(function (): void {
     $this->files = [
