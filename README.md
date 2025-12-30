@@ -116,6 +116,43 @@ Force overwrite an existing contract file:
 php artisan make:contract {name} --force
 ```
 
+### Make Facade
+
+Create a new facade class. By default the class is generated into the `App\Facades` namespace and extends `Illuminate\Support\Facades\Facade`.
+
+```bash
+php artisan make:facade {name}
+```
+
+The command will automatically generate a snake_case accessor based on the facade name. For example:
+
+```bash
+php artisan make:facade FileUpload
+```
+
+This generates `App\Facades\FileUpload` with accessor `file_upload`.
+
+Force overwrite an existing facade file:
+
+```bash
+php artisan make:facade {name} --force
+```
+
+If the name argument is not provided, you will be prompted to enter it:
+
+```bash
+php artisan make:facade
+# Enter FacadeName (ex. FileUpload): Payment
+```
+
+You can also create facades with namespaces:
+
+```bash
+php artisan make:facade Payment\Stripe
+```
+
+This generates `App\Facades\Payment\Stripe` with accessor `stripe`.
+
 ## Testing
 
 ```bash

@@ -7,6 +7,7 @@ use MrPunyapal\LaravelExtendedCommands\Commands\BuilderMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\CollectionMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\ConcernMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\ContractMakeCommand;
+use MrPunyapal\LaravelExtendedCommands\Commands\FacadeMakeCommand;
 use MrPunyapal\LaravelExtendedCommands\Commands\ModelMakeCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -30,6 +31,7 @@ class LaravelExtendedCommandsServiceProvider extends PackageServiceProvider
                 ConcernMakeCommand::class,
                 ContractMakeCommand::class,
                 CollectionMakeCommand::class,
+                FacadeMakeCommand::class,
             ]);
 
         $this->app->extend('command.model.make', fn (array $app): ModelMakeCommand => new ModelMakeCommand($app['files']));
