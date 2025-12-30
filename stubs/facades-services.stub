@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace $NAMESPACE$;
+namespace {{ namespace }};
 
-class $CLASS_NAME$
+class {{ class }}
 {
     /**
-     * Start to make a functions & enojoy!
+     * Start to make functions & enjoy!
      */
     public static function startToMakingFunction()
     {
-        // Write a codes
+        // Write your code here
     }
 }
