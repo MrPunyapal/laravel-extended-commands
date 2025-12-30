@@ -39,20 +39,10 @@ class FacadeMakeCommand extends GeneratorCommand
     #[Override]
     protected function buildClass($name)
     {
-        $stub = parent::buildClass($name);
-
-        return $this->replaceAccessor($stub, $name);
-    }
-
-    /**
-     * Replace the accessor in the stub.
-     */
-    protected function replaceAccessor(string $stub, string $name): string
-    {
-        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $class = class_basename($name);
         $accessor = Str::snake($class);
 
-        return str_replace(['{{ accessor }}', '{{accessor}}'], $accessor, $stub);
+        return str_replace('{{ accessor }}', $accessor, parent::buildClass($name));
     }
 
     /**
