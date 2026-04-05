@@ -12,7 +12,7 @@ beforeEach(function (): void {
 
 // Test basic view creation with default layout
 it('generates a view file with default layout', function (): void {
-    $this->artisan('make:view', ['name' => 'dashboard'])
+    $this->artisan('make:view-plus', ['name' => 'dashboard'])
         ->assertExitCode(0);
 
     expect(File::exists(resource_path('views/dashboard.blade.php')))->toBeTrue()->and(File::exists(resource_path('views/layouts/app.blade.php')))->toBeTrue();
@@ -23,7 +23,7 @@ it('generates a view file with default layout', function (): void {
 
 // Test view creation with a specific layout
 it('generates a view file and specified layout', function (): void {
-    $this->artisan('make:view', ['name' => 'admin/page', '--layout' => 'admin/main'])
+    $this->artisan('make:view-plus', ['name' => 'admin/page', '--layout' => 'admin/main'])
         ->assertExitCode(0);
 
     expect(File::exists(resource_path('views/admin/page.blade.php')))->toBeTrue()->and(File::exists(resource_path('views/layouts/admin/main.blade.php')))->toBeTrue();
@@ -34,7 +34,7 @@ it('generates a view file and specified layout', function (): void {
 
 // Test view creation in simple mode (no layout)
 it('generates a simple view file without layout', function (): void {
-    $this->artisan('make:view', ['name' => 'test/simple', '--simple' => true])
+    $this->artisan('make:view-plus', ['name' => 'test/simple', '--simple' => true])
         ->assertExitCode(0);
 
     expect(File::exists(resource_path('views/test/simple.blade.php')))->toBeTrue();

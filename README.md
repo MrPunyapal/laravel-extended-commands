@@ -28,19 +28,19 @@ return [
 
 ## Usage
 
-### Make View
+### Make View Plus
 
-Create a new Blade view file. By default, the view is generated with a layout structure using `@extends` and automatically creates the layout file if it doesn't exist.
+Create a new Blade view file with enhanced features. This is an improved version of Laravel's `make:view` with automatic layout creation and additional options.
 
 ```bash
-php artisan make:view {name}
+php artisan make:view-plus {name}
 ```
 
 This generates a view in `resources/views/{name}.blade.php` with the default `app` layout and automatically creates `resources/views/layouts/app.blade.php` if it doesn't exist.
 
 **Example:**
 ```bash
-php artisan make:view dashboard
+php artisan make:view-plus dashboard
 ```
 
 Creates:
@@ -50,12 +50,12 @@ Creates:
 Create a view with a custom layout:
 
 ```bash
-php artisan make:view {name} --layout={layout}
+php artisan make:view-plus {name} --layout={layout}
 ```
 
 **Example:**
 ```bash
-php artisan make:view admin/users --layout=admin/main
+php artisan make:view-plus admin/users --layout=admin/main
 ```
 
 Creates:
@@ -65,12 +65,12 @@ Creates:
 Create a simple view without layout (no `@extends`):
 
 ```bash
-php artisan make:view {name} --simple
+php artisan make:view-plus {name} --simple
 ```
 
 **Example:**
 ```bash
-php artisan make:view components/alert --simple
+php artisan make:view-plus components/alert --simple
 ```
 
 Creates only `resources/views/components/alert.blade.php` with basic HTML structure, no layout.
@@ -78,7 +78,7 @@ Creates only `resources/views/components/alert.blade.php` with basic HTML struct
 Force overwrite an existing view:
 
 ```bash
-php artisan make:view {name} --force
+php artisan make:view-plus {name} --force
 ```
 
 **Nested Views:**
@@ -86,9 +86,9 @@ php artisan make:view {name} --force
 The command supports dot notation or slash notation for nested directories:
 
 ```bash
-php artisan make:view admin.users.index
+php artisan make:view-plus admin.users.index
 # or
-php artisan make:view admin/users/index
+php artisan make:view-plus admin/users/index
 ```
 
 Both create `resources/views/admin/users/index.blade.php`.

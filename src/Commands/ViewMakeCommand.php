@@ -7,13 +7,13 @@ use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 
-#[AsCommand(name: 'make:view')]
+#[AsCommand(name: 'make:view-plus')]
 class ViewMakeCommand extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
      */
-    protected $name = 'make:view';
+    protected $name = 'make:view-plus';
 
     /**
      * The console command description.
@@ -119,10 +119,13 @@ class ViewMakeCommand extends GeneratorCommand
     #[Override]
     protected function getPath($name)
     {
-        // Support dot syntax for nested folders
-        $name = str_replace('.', '/', $name);
+        // Use the raw name input instead of the qualified class name
+        $viewName = $this->getNameInput();
 
-        $path = resource_path('views/'.$name.'.blade.php');
+        // Support dot syntax for nested folders
+        $viewName = str_replace('.', '/', $viewName);
+
+        $path = resource_path('views/'.$viewName.'.blade.php');
 
         // Create the directory for the view if it does not exist
         if (! $this->files->exists(dirname($path))) {
