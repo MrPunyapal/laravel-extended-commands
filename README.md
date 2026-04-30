@@ -26,6 +26,19 @@ return [
 ];
 ```
 
+## Laravel Boost
+
+This package ships a Laravel Boost skill for its generators.
+
+In a Laravel application that has `laravel/boost` installed, add this package and then run one of the following commands to discover or refresh the packaged skill:
+
+```bash
+php artisan boost:install
+php artisan boost:update --discover
+```
+
+Boost can then install the `laravel-extended-commands-development` skill for tasks involving this package's custom Artisan generators.
+
 ## Usage
 
 ### Make Builder
