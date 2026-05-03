@@ -1,6 +1,6 @@
 ---
 name: laravel-extended-commands-development
-description: "Use this skill when working with mrpunyapal/laravel-extended-commands in a Laravel application. Trigger whenever the task involves generating or updating actions, custom Eloquent builders, custom Eloquent collections, concerns, contracts, facades, or using the package's extended `make:model` command with `--builder` or `--collection`. Covers: `make:action`, `make:builder`, `make:collection`, `make:concern`, `make:contract`, `make:facade`, nested namespaces, invokable actions, facade accessor generation, and model-generated `newEloquentBuilder()` and `newCollection()` methods. Do not use for generic Laravel generator tasks that do not rely on this package."
+description: "Use this skill when working with mrpunyapal/laravel-extended-commands in a Laravel application. Trigger when the task involves this package's generators for actions, custom Eloquent builders, custom Eloquent collections, concerns, contracts, facades, or the extended `make:model` workflow with `--builder` or `--collection`. Teach the package conventions and generated structure, then use `php artisan help <command>` for full command syntax and options."
 license: MIT
 metadata:
   author: mrpunyapal
@@ -10,154 +10,63 @@ metadata:
 
 ## When to use this skill
 
-Use this skill when a Laravel task should be solved with this package's generators instead of writing boilerplate by hand.
+Use this skill when a Laravel task should use this package's generators instead of handwritten boilerplate.
 
-Activate it when the request mentions any of these workflows:
+Typical triggers:
 
-- `make:action` for action classes in `app/Actions`
-- `make:builder` for custom Eloquent builders in `app/Models/Builders`
-- `make:collection` for custom Eloquent collections in `app/Models/Collections`
-- `make:concern` for traits in `app/Concerns`
-- `make:contract` for interfaces in `app/Contracts`
-- `make:facade` for facades in `app/Facades`
-- `make:model --builder` or `make:model --collection` for model-driven scaffolding
+- the request mentions `make:action`, `make:builder`, `make:collection`, `make:concern`, `make:contract`, or `make:facade`
+- the request wants a model plus its custom builder or collection via `make:model --builder` or `make:model --collection`
+- the request needs the package's default namespaces, generated methods, or generated facade accessor behavior
 
-Do not use this skill for unrelated Laravel generators or when the application is not using `mrpunyapal/laravel-extended-commands`.
+Do not use this skill for unrelated Laravel generators or when the project is not using `mrpunyapal/laravel-extended-commands`.
 
-## Package overview
+## Core package conventions
 
-This package adds focused Artisan generators for common Laravel structures and extends Laravel's `make:model` command so a model can scaffold its matching builder and collection.
+This package exists to generate common Laravel structures in the package's preferred locations instead of leaving those classes to manual boilerplate.
 
-Prefer these generators over handwritten boilerplate so the generated files land in the package's expected namespaces and include the right method skeletons or generic PHPDoc.
+- `make:action` creates actions in `App\Actions`
+- `make:builder` creates custom builders in `App\Models\Builders`
+- `make:collection` creates custom collections in `App\Models\Collections`
+- `make:concern` creates traits in `App\Concerns`
+- `make:contract` creates interfaces in `App\Contracts`
+- `make:facade` creates facades in `App\Facades`
 
-## Quick reference
+Prefer the generator over hand-writing the file so the namespace, base class, and method skeleton match the package's conventions.
 
-### Actions
+## High-value behavior to remember
 
-Generate an action in `App\Actions`:
+- `make:action` generates `handle()` by default and switches to `__invoke()` with `--invokable`
+- `make:builder` and `make:collection` accept `--model` to add generic PHPDoc for the related model
+- `make:facade` derives a snake_case accessor from the generated class name
+- nested names should be passed directly to the generator instead of creating the file and moving it later
+- the extended `make:model` command can scaffold the matching builder and collection and wire `newEloquentBuilder()` or `newCollection()` onto the model
 
-```bash
-php artisan make:action ProcessOrderAction
-```
-
-Generate an invokable action:
-
-```bash
-php artisan make:action SyncInventoryAction --invokable
-```
-
-`make:action` generates a `handle()` method by default and switches to `__invoke()` when `--invokable` is used.
-
-### Builders
-
-Generate a builder in `App\Models\Builders`:
+When exact syntax, options, or prompts matter, use Artisan help instead of guessing:
 
 ```bash
-php artisan make:builder OrderBuilder
+php artisan help make:action
+php artisan help make:builder
+php artisan help make:collection
+php artisan help make:facade
+php artisan help make:model
 ```
 
-Generate a builder with model generics in the PHPDoc:
+## Workflow guidance
 
-```bash
-php artisan make:builder OrderBuilder --model="\\App\\Models\\Order"
-```
+If the task starts from a model and needs custom Eloquent primitives, prefer the model workflow first so the generated imports and methods stay aligned.
 
-### Collections
+If the task starts from a standalone class, use the dedicated generator for that class type.
 
-Generate a collection in `App\Models\Collections`:
+If the task wants namespaced output, pass the nested name directly to the generator.
 
-```bash
-php artisan make:collection OrderCollection
-```
+## Pitfalls
 
-Generate a collection with model generics in the PHPDoc:
-
-```bash
-php artisan make:collection OrderCollection --model="\\App\\Models\\Order"
-```
-
-### Concerns and contracts
-
-Generate a trait in `App\Concerns`:
-
-```bash
-php artisan make:concern TracksOrderState
-```
-
-Generate an interface in `App\Contracts`:
-
-```bash
-php artisan make:contract SendsOrderNotifications
-```
-
-### Facades
-
-Generate a facade in `App\Facades`:
-
-```bash
-php artisan make:facade Billing
-```
-
-Nested names are supported. This generates `App\Facades\Payment\Stripe` and uses `stripe` as the accessor:
-
-```bash
-php artisan make:facade Payment\\Stripe
-```
-
-If no name is provided, the command prompts for one.
-
-### Extended models
-
-Generate a model and scaffold its custom builder:
-
-```bash
-php artisan make:model Order --builder
-```
-
-Generate a model and scaffold its custom collection:
-
-```bash
-php artisan make:model Order --collection
-```
-
-When you use `--builder`, the model gets a `newEloquentBuilder()` method and a matching builder class is generated in `App\Models\Builders`.
-
-When you use `--collection`, the model gets a `newCollection()` method and a matching collection class is generated in `App\Models\Collections`.
-
-## Common patterns
-
-### Use nested names instead of moving files manually
-
-Pass a nested name directly to the generator when you want grouped classes:
-
-```bash
-php artisan make:action Billing\\CapturePaymentAction
-php artisan make:builder Billing\\InvoiceBuilder
-php artisan make:collection Billing\\InvoiceCollection
-php artisan make:facade Payment\\Stripe
-```
-
-### Let the model command wire the builder or collection
-
-If the request is to create a model plus its custom Eloquent primitives, prefer the model workflow over running every command by hand:
-
-```bash
-php artisan make:model Product --builder --collection
-```
-
-That keeps the generated model imports and methods aligned with the scaffolded classes.
-
-## Common pitfalls
-
-- Do not hand-write empty boilerplate classes when one of these generators already provides the correct namespace and base class.
-- Use `--builder` and `--collection` explicitly on `make:model`; do not assume unrelated `make:model` flags will scaffold these classes.
-- When using `--model` with `make:builder` or `make:collection`, pass the exact type you want in the generated PHPDoc.
-- Remember that `make:facade` derives the accessor automatically from the generated class name. Nested facades use the final segment for that accessor.
-- If the user wants an invokable action, use `--invokable` instead of generating `handle()` and editing it afterward.
+- do not recreate package-generated boilerplate manually unless the user explicitly wants a custom shape
+- do not assume standard Laravel `make:model` also adds builder or collection wiring without this package's flags
+- do not invent facade accessors manually when the generator already derives them from the class name
 
 ## Verification
 
-1. Confirm the generated file was created in the expected namespace directory.
-2. For `make:model --builder` and `make:model --collection`, confirm both the model and companion class were generated.
-3. Check the generated builder or collection PHPDoc when `--model` was supplied.
-4. Run the relevant package tests if you changed generator behavior.
+1. Confirm the generated file landed in the expected namespace directory.
+2. For model-driven scaffolding, confirm both the model and companion builder or collection were generated.
+3. If you changed generator behavior, run the relevant package tests.
