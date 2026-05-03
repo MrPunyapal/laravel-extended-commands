@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## 1.5.0 - 2026-05-03
+
+### What's Changed
+
+* Feat: laravel boost skill by @MrPunyapal in https://github.com/MrPunyapal/laravel-extended-commands/pull/14
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-extended-commands/compare/1.4.0...1.5.0
+
 ## 1.4.0 - 2026-03-23
 
 ### What's Changed
