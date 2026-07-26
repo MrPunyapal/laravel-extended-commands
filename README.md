@@ -130,6 +130,20 @@ Force overwrite an existing contract file:
 php artisan make:contract {name} --force
 ```
 
+### Make Service
+
+Create a new service class. By default the class is generated into the `App\Services` namespace.
+
+```bash
+php artisan make:service {name}
+```
+
+Force overwrite an existing service file:
+
+```bash
+php artisan make:service {name} --force
+```
+
 ### Make Facade
 
 Create a new facade class. By default the class is generated into the `App\Facades` namespace and extends `Illuminate\Support\Facades\Facade`.
