@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## 1.6.0 - 2026-07-27
+
+### What's Changed
+
+* feat: add make:service command by @COCOUVI in https://github.com/MrPunyapal/laravel-extended-commands/pull/13
+* Add Section Make Service in README.md by @COCOUVI in https://github.com/MrPunyapal/laravel-extended-commands/pull/15
+
+### New Contributors
+
+* @COCOUVI made their first contribution in https://github.com/MrPunyapal/laravel-extended-commands/pull/13
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-extended-commands/compare/1.5.0...1.6.0
+
 ## 1.5.0 - 2026-05-03
 
 ### What's Changed
