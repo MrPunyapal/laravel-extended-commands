@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "entries": {
+    "commands.png": {
+      "hash": "c8935487d0fe9d8e7b658edacb0bab0af24bb1ce63bdc3651719a38f3635c446",
+      "output": "commands.png",
+      "label": "commands"
+    },
+    "configuration.png": {
+      "hash": "72fd8e2489cff244d02d620f47ac3219e5cfd78040a8325ac670c50bd07e080f",
+      "output": "configuration.png",
+      "label": "configuration"
+    },
+    "index.png": {
+      "hash": "57116240e85512dde26e43a28976b0d868974e00f7814f5f3952c4a6da77c18d",
+      "output": "index.png",
+      "label": "index"
+    },
+    "installation.png": {
+      "hash": "9e052a9c7c88f0fd3350392e98aa546d34f5360f33a762489d22bbf0846d6e57",
+      "output": "installation.png",
+      "label": "installation"
+    },
+    "usage.png": {
+      "hash": "d099ea3acfaedd8f5b6122f63560cc1c9f3da68a7453d7634a1be63b554efe40",
+      "output": "usage.png",
+      "label": "usage"
+    }
+  }
+}

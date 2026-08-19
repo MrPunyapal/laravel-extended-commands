@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands | Laravel Extended Commands</title>
+    <meta name="description" content="Artisan generator commands that are missing from Laravel.">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Commands | Laravel Extended Commands">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://mrpunyapal.github.io/laravel-extended-commands/commands">
+    <meta property="og:image" content="https://mrpunyapal.github.io/laravel-extended-commands/og/commands.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Commands | Laravel Extended Commands">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://mrpunyapal.github.io/laravel-extended-commands/og/commands.png">
+    <link rel="stylesheet" href="../assets/app.css">
+    <script src="../assets/app.js" defer></script>
+</head>
+<body data-docsmith-root="../">
+    <div class="shell">
+        <aside class="sidebar" data-docsmith-sidebar>
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <h1 class="brand">Laravel Extended Commands</h1>
+                    <p class="tagline">Artisan generator commands that are missing from Laravel.</p>
+                </div>
+                <button type="button" class="mobile-menu-toggle" data-docsmith-menu-toggle aria-expanded="false" aria-controls="docsmith-sidebar-panel" aria-label="Open menu"><svg class="mobile-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="mobile-menu-bars" d="M3.75 8.25h16.5M3.75 15.75h11"></path><path class="mobile-menu-close" d="M6 6l12 12M18 6L6 18"></path></svg><span class="sr-only">Toggle menu</span></button>
+            </div>
+            <div class="sidebar-panel" id="docsmith-sidebar-panel" data-docsmith-sidebar-panel>
+                
+                <div class="sidebar-actions"><a class="sidebar-action-link" href="https://github.com/mrpunyapal/laravel-extended-commands">Repository</a><button type="button" class="theme-toggle" data-docsmith-theme-toggle>Theme</button></div>
+                <div class="search">
+                    <input type="search" placeholder="Search pages  (⌘K)" aria-label="Search pages" data-docsmith-search>
+                    <div class="search-results" data-docsmith-search-results hidden></div>
+                    <div class="search-empty" data-docsmith-empty>No pages match your search.</div>
+                </div>
+                <nav class="nav" data-docsmith-nav><a class="" href="../" data-nav-item data-title="Laravel Extended Commands" data-search="Laravel Extended Commands Laravel Extended Commands">Laravel Extended Commands</a><a class="" href="../installation/" data-nav-item data-title="Installation" data-search="Installation Installation">Installation</a><a class="" href="../configuration/" data-nav-item data-title="Configuration" data-search="Configuration Configuration">Configuration</a><a class="" href="../usage/" data-nav-item data-title="Usage" data-search="Usage Usage">Usage</a><a class="active" href="./" data-nav-item data-title="Commands" data-search="Commands Commands">Commands</a></nav>
+                <a class="docsmith-badge" href="https://github.com/MrPunyapal/docsmith" target="_blank" rel="noopener noreferrer" data-docsmith-badge aria-label="Built with DocSmith"><svg class="docsmith-badge-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6.716-4.35-9.428-7.052C.4 11.692-.21 8.9 1.38 6.87 2.736 5.14 5.09 4.583 6.86 5.686 8 6.41 8.86 7.55 9.6 8.7c.74-1.15 1.6-2.29 2.74-3.014 1.77-1.103 4.124-.546 5.48 1.184 1.59 2.03.98 4.822-1.192 7.078C18.716 16.65 12 21 12 21z"/></svg><span class="docsmith-badge-text">Built with</span><span class="docsmith-badge-brand">DocSmith</span></a>
+            </div>
+        </aside>
+        <button type="button" class="sidebar-backdrop" data-docsmith-sidebar-backdrop aria-label="Close menu"></button>
+        <main class="content">
+            <article>
+                <header class="doc-head">
+                    
+                    <h1>Commands</h1>
+                    
+                </header>
+                <div class="doc-body">
+                    <p>All commands extend Laravel's <code>GeneratorCommand</code>, so they accept the standard options such as <code>--force</code> and will prompt for missing arguments.</p>
+<h2 id="make-action">make:action</h2>
+<p>Creates a new action class under <code>App\Actions</code>.</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:action</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">ChargeAction</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> app/Actions/ChargeAction.php
+</span></span></code></pre>
+<h3 id="invokable-actions">Invokable actions</h3>
+<p>By default the generated action has a <code>handle()</code> method. Pass <code>--invokable</code> to generate an <code>__invoke()</code> method instead:</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:action</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">ChargeAction</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-invokable</span><span class="token">
+</span></span></code></pre>
+<pre class="phiki language-php github-light phiki-themes github-dark" data-language="php" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">class</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">ChargeAction</span><span class="token">
+</span></span><span class="line"><span class="token">{</span><span class="token">
+</span></span><span class="line"><span class="token">    </span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">public</span><span class="token"> </span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">function</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">__invoke</span><span class="token">(</span><span class="token">)</span><span class="token">
+</span></span><span class="line"><span class="token">    </span><span class="token">{</span><span class="token">
+</span></span><span class="line"><span class="token">        </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">//</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">
+</span></span><span class="line"><span class="token">    </span><span class="token">}</span><span class="token">
+</span></span><span class="line"><span class="token">}</span><span class="token">
+</span></span></code></pre>
+<h3 id="options">Options</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--invokable</code></td>
+<td></td>
+<td>Generate an invokable action with an <code>__invoke</code> method</td>
+</tr>
+<tr>
+<td><code>--force</code></td>
+<td><code>-f</code></td>
+<td>Create the class even if the action already exists</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="make-builder">make:builder</h2>
+<p>Creates a new Eloquent query builder under <code>App\Models\Builders</code>. The generated class extends <code>Illuminate\Database\Eloquent\Builder</code>.</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:builder</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">OrderBuilder</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> app/Models/Builders/OrderBuilder.php
+</span></span></code></pre>
+<h3 id="typing-a-builder-to-a-model">Typing a builder to a model</h3>
+<p>Pass <code>--model</code> to add <code>@template</code> and <code>@extends</code> PHPDoc for IDE support:</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:builder</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">OrderBuilder</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-model=Order</span><span class="token">
+</span></span></code></pre>
+<pre class="phiki language-php github-light phiki-themes github-dark" data-language="php" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">/**</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> @template TModel of Order </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">*/</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">/**</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> @extends Builder&lt;Order&gt; </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">*/</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">class</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">OrderBuilder</span><span class="token"> </span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">extends</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">Builder</span><span class="token">
+</span></span><span class="line"><span class="token">{</span><span class="token">
+</span></span><span class="line"><span class="token">    </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">//</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">
+</span></span><span class="line"><span class="token">}</span><span class="token">
+</span></span></code></pre>
+<h3 id="options-2">Options</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--model</code></td>
+<td><code>-m</code></td>
+<td>The model that the builder applies to</td>
+</tr>
+<tr>
+<td><code>--force</code></td>
+<td><code>-f</code></td>
+<td>Create the class even if the builder already exists</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="make-collection">make:collection</h2>
+<p>Creates a new Eloquent collection under <code>App\Models\Collections</code>. The generated class extends <code>Illuminate\Database\Eloquent\Collection</code>.</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:collection</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">OrderCollection</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> app/Models/Collections/OrderCollection.php
+</span></span></code></pre>
+<h3 id="typing-a-collection-to-a-model">Typing a collection to a model</h3>
+<p>Pass <code>--model</code> to add <code>@template</code> and <code>@extends</code> PHPDoc:</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:collection</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">OrderCollection</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-model=Order</span><span class="token">
+</span></span></code></pre>
+<pre class="phiki language-php github-light phiki-themes github-dark" data-language="php" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">/**</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> @template TModel of Order </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">*/</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">/**</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> @extends Collection&lt;Order&gt; </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">*/</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">class</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">OrderCollection</span><span class="token"> </span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">extends</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">Collection</span><span class="token">
+</span></span><span class="line"><span class="token">{</span><span class="token">
+</span></span><span class="line"><span class="token">    </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">//</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">
+</span></span><span class="line"><span class="token">}</span><span class="token">
+</span></span></code></pre>
+<h3 id="options-3">Options</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--model</code></td>
+<td><code>-m</code></td>
+<td>The model that the collection contains</td>
+</tr>
+<tr>
+<td><code>--force</code></td>
+<td><code>-f</code></td>
+<td>Create the class even if the collection already exists</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="make-concern">make:concern</h2>
+<p>Creates a new concern (trait) under <code>App\Concerns</code>.</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:concern</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">HasTenant</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> app/Concerns/HasTenant.php
+</span></span></code></pre>
+<pre class="phiki language-php github-light phiki-themes github-dark" data-language="php" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">trait</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">HasTenant</span><span class="token">
+</span></span><span class="line"><span class="token">{</span><span class="token">
+</span></span><span class="line"><span class="token">    </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">//</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">
+</span></span><span class="line"><span class="token">}</span><span class="token">
+</span></span></code></pre>
+<h3 id="options-4">Options</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--force</code></td>
+<td><code>-f</code></td>
+<td>Create the trait even if the concern already exists</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="make-contract">make:contract</h2>
+<p>Creates a new contract (interface) under <code>App\Contracts</code>.</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:contract</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">PaymentGateway</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> app/Contracts/PaymentGateway.php
+</span></span></code></pre>
+<pre class="phiki language-php github-light phiki-themes github-dark" data-language="php" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">interface</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">PaymentGateway</span><span class="token">
+</span></span><span class="line"><span class="token">{</span><span class="token">
+</span></span><span class="line"><span class="token">    </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">//</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">
+</span></span><span class="line"><span class="token">}</span><span class="token">
+</span></span></code></pre>
+<h3 id="options-5">Options</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--force</code></td>
+<td><code>-f</code></td>
+<td>Create the interface even if the contract already exists</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="make-facade">make:facade</h2>
+<p>Creates a new facade under <code>App\Facades</code>, extending <code>Illuminate\Support\Facades\Facade</code>.</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:facade</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">FileUpload</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> app/Facades/FileUpload.php
+</span></span></code></pre>
+<p>The accessor is derived automatically as the snake_case form of the class name:</p>
+<pre class="phiki language-php github-light phiki-themes github-dark" data-language="php" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">protected</span><span class="token"> </span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">static</span><span class="token"> </span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">function</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">getFacadeAccessor</span><span class="token">(</span><span class="token">)</span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">:</span><span class="token"> </span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">mixed</span><span class="token">
+</span></span><span class="line"><span class="token">{</span><span class="token">
+</span></span><span class="line"><span class="token">    </span><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">return</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">"</span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">file_upload</span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">"</span><span class="token">;</span><span class="token">
+</span></span><span class="line"><span class="token">}</span><span class="token">
+</span></span></code></pre>
+<h3 id="prompting">Prompting</h3>
+<p>The <code>name</code> argument is required but interactive. If you run the command without it, you are prompted:</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:facade</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> Enter FacadeName (ex. FileUpload): Payment
+</span></span></code></pre>
+<h3 id="nested-namespaces">Nested namespaces</h3>
+<p>The accessor always uses the class basename:</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:facade</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">Payment</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">\S</span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">tripe</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> App\Facades\Payment\Stripe with accessor "stripe"
+</span></span></code></pre>
+<h3 id="options-6">Options</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--force</code></td>
+<td><code>-f</code></td>
+<td>Create the class even if the facade already exists</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="make-model">make:model</h2>
+<p>Extends Laravel's built-in <code>make:model</code> with two new flags: <code>--builder</code> and <code>--collection</code>.</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:model</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">Order</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> app/Models/Order.php
+</span></span></code></pre>
+<h3 id="model-with-a-builder">Model with a builder</h3>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:model</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">Order</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-builder</span><span class="token">
+</span></span></code></pre>
+<p>Creates <code>app/Models/Builders/OrderBuilder.php</code> and adds a <code>newEloquentBuilder()</code> method to the model.</p>
+<h3 id="model-with-a-collection">Model with a collection</h3>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:model</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">Order</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-collection</span><span class="token">
+</span></span></code></pre>
+<p>Creates <code>app/Models/Collections/OrderCollection.php</code> and adds a <code>newCollection()</code> method to the model.</p>
+<h3 id="model-with-both">Model with both</h3>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:model</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">Order</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-builder</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-collection</span><span class="token">
+</span></span></code></pre>
+<h3 id="all-scaffold">All scaffold</h3>
+<p>The <code>--all</code> flag generates every related file — factory, migration, seeder, controller, policy, form request, resource — plus the builder and collection:</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:model</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">Order</span><span class="token"> </span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-</span><span class="token" style="color: #005cc5;--phiki-dark-color: #79b8ff;">-all</span><span class="token">
+</span></span></code></pre>
+<h3 id="options-7">Options</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--builder</code></td>
+<td><code>-b</code></td>
+<td>Create a new builder for the model</td>
+</tr>
+<tr>
+<td><code>--collection</code></td>
+<td></td>
+<td>Create a new collection for the model</td>
+</tr>
+<tr>
+<td><code>--force</code></td>
+<td><code>-f</code></td>
+<td>(inherited) Create the class even if the model already exists</td>
+</tr>
+</tbody>
+</table></div>
+<p>All other options from Laravel's <code>make:model</code> (<code>--factory</code>, <code>--migration</code>, <code>--seeder</code>, <code>--controller</code>, <code>--policy</code>, <code>--form-request</code>, <code>--resource</code>, <code>--all</code>, <code>--api</code>) continue to work unchanged.</p>
+<h2 id="make-service">make:service</h2>
+<p>Creates a new service class under <code>App\Services</code>.</p>
+<pre class="phiki language-shellscript github-light phiki-themes github-dark" data-language="shellscript" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">php</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">artisan</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">make:service</span><span class="token"> </span><span class="token" style="color: #032f62;--phiki-dark-color: #9ecbff;">PaymentService</span><span class="token">
+</span></span><span class="line"><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">#</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;"> app/Services/PaymentService.php
+</span></span></code></pre>
+<pre class="phiki language-php github-light phiki-themes github-dark" data-language="php" style="background-color: #fff;color: #24292e;--phiki-dark-background-color: #24292e;--phiki-dark-color: #e1e4e8;"><code><span class="line"><span class="token" style="color: #d73a49;--phiki-dark-color: #f97583;">class</span><span class="token"> </span><span class="token" style="color: #6f42c1;--phiki-dark-color: #b392f0;">PaymentService</span><span class="token">
+</span></span><span class="line"><span class="token">{</span><span class="token">
+</span></span><span class="line"><span class="token">    </span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">//</span><span class="token" style="color: #6a737d;--phiki-dark-color: #6a737d;">
+</span></span><span class="line"><span class="token">}</span><span class="token">
+</span></span></code></pre>
+<h3 id="options-8">Options</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Short</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--force</code></td>
+<td><code>-f</code></td>
+<td>Create the class even if the service already exists</td>
+</tr>
+</tbody>
+</table></div>
+
+                </div>
+                <footer class="doc-meta">
+                    <a class="edit-link" href="https://github.com/mrpunyapal/laravel-extended-commands/edit/main/md/commands.md">Edit this page</a>
+                </footer>
+            </article>
+            <nav class="pager" aria-label="Page navigation"><a class="pager-link" href="../usage/"><span>Previous</span><strong>Usage</strong></a></nav>
+        </main>
+        
+    </div>
+    <div class="search-overlay" data-docsmith-search-overlay hidden role="dialog" aria-label="Search documentation">
+    <div class="search-overlay-backdrop" data-docsmith-search-overlay-close></div>
+    <div class="search-overlay-panel">
+        <div class="search-overlay-input-wrap">
+            <svg class="search-overlay-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="search" class="search-overlay-input" placeholder="Search documentation..." aria-label="Search documentation" data-docsmith-search-overlay-input autocomplete="off">
+            <kbd class="search-overlay-hint">ESC</kbd>
+        </div>
+        <div class="search-overlay-results" data-docsmith-search-overlay-results></div>
+        <div class="search-overlay-empty" data-docsmith-search-overlay-empty hidden>No results found.</div>
+    </div>
+</div>
+</body>
+</html>

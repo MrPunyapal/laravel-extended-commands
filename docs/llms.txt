@@ -1,0 +1,10 @@
+# Laravel Extended Commands
+> Artisan generator commands that are missing from Laravel.
+
+## Docs
+
+- https://mrpunyapal.github.io/laravel-extended-commands/commands: Commands
+- https://mrpunyapal.github.io/laravel-extended-commands/configuration: Configuration
+- https://mrpunyapal.github.io/laravel-extended-commands/installation: Installation
+- https://mrpunyapal.github.io/laravel-extended-commands/: Laravel Extended Commands
+- https://mrpunyapal.github.io/laravel-extended-commands/usage: Usage
