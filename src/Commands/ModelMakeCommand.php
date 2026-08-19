@@ -2,6 +2,7 @@
 
 namespace MrPunyapal\LaravelExtendedCommands\Commands;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Console\ModelMakeCommand as BaseCommand;
 use Illuminate\Support\Str;
 use Override;
@@ -10,12 +11,28 @@ use Symfony\Component\Console\Input\InputOption;
 class ModelMakeCommand extends BaseCommand
 {
     /**
+     * Create a new model make command instance.
+     */
+    public function __construct(Filesystem $files)
+    {
+        parent::__construct($files);
+
+        // Laravel 13+ defines command options through the ``$signature`` property, so the
+        // ``getOptions()`` method is no longer consulted while building the definition.
+        // Register the additional options here to support both definition mechanisms.
+        if (! $this->getDefinition()->hasOption('builder')) {
+            $this->addOption('builder', 'b', InputOption::VALUE_NONE, 'Create a new builder for the model');
+            $this->addOption('collection', null, InputOption::VALUE_NONE, 'Create a new collection for the model');
+        }
+    }
+
+    /**
      * {@inheritDoc}
      */
     #[Override]
-    public function handle(): void
+    public function handle(): ?bool
     {
-        parent::handle();
+        $status = parent::handle();
 
         if ($this->option('builder')) {
             $this->createBuilder();
@@ -24,6 +41,8 @@ class ModelMakeCommand extends BaseCommand
         if ($this->option('collection')) {
             $this->createCollection();
         }
+
+        return $status;
     }
 
     /**
