@@ -4,6 +4,9 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mrpunyapal/laravel-extended-commands.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-extended-commands)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mrpunyapal/laravel-extended-commands/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mrpunyapal/laravel-extended-commands/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/mrpunyapal/laravel-extended-commands.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-extended-commands)
+[![Laravel Version Compatibility](https://badge.laravel.cloud/badge/mrpunyapal/laravel-extended-commands?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-extended-commands)
+[![PHP Version Compatibility](https://badge.laravel.cloud/php-badge/mrpunyapal/laravel-extended-commands?style=flat-square)](https://packagist.org/packages/mrpunyapal/laravel-extended-commands)
+[![Laravel Boost Skill](https://badge.laravel.cloud/boost-badge.svg?style=flat-square)](https://laravel.com/docs/boost#third-party-package-skills)
 
 ## Installation
 
