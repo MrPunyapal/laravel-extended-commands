@@ -1,0 +1,14 @@
+{
+    "mcpServers": {
+        "docsmith": {
+            "command": "php",
+            "args": [
+                "vendor/bin/docsmith",
+                "mcp:serve",
+                "--transport=stdio",
+                "--source=.",
+                "--docs-source=docs-source"
+            ]
+        }
+    }
+}

@@ -20,13 +20,13 @@
     ],
     "require": {
         "php": "^8.3|^8.4|^8.5",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0||^12.0||^13.0"
+        "illuminate/contracts": "^11.0||^12.0||^13.0",
+        "mrpunyapal/docsmith": "@dev",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "larastan/larastan": "^2.9||^3.0",
         "laravel/pint": "^1.14",
-        "mrpunyapal/docsmith": "^0.2.1",
         "mrpunyapal/rector-pest": "^0.1.0",
         "nunomaduro/collision": "^8.1.1||^7.10.0",
         "orchestra/testbench": "^11.0.0||^10.0.0||^9.0.0||^8.22.0",
@@ -86,5 +86,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [{
+        "name": "docsmith",
+        "type": "path",
+        "url": "../docsmith"
+    }]
 }
