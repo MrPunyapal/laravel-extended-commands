@@ -302,7 +302,7 @@ Once the file is published to `config/extended-commands.php`, you can adjust it 
 
 ## Requirements
 
-- PHP `^8.3`, `^8.4`, or `^8.5`
+- PHP `^8.3`, `^8.4`, `^8.5`, or `^8.6`
 - Laravel 11, 12, or 13
 
 ## Install the package
