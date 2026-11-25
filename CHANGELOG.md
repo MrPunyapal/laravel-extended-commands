@@ -2,6 +2,17 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## 2.0.0 - 2026-11-25
+
+### What's Changed
+
+- Laravel 12 or 13 is now required. Projects on Laravel 11 should stay on the 1.x series.
+- Added PHP 8.6 support with Laravel 13.44 and later. CI tests that combination on Linux and Windows.
+- Fixed registration of the builder and collection options for the Laravel 13 model generator.
+- Added a documentation site with installation, configuration, and command examples.
+
+**Full Changelog**: https://github.com/MrPunyapal/laravel-extended-commands/compare/1.6.0...2.0.0
+
 ## Unreleased
 
 - Drop Laravel 11 support. Laravel 12 or 13 is now required.
