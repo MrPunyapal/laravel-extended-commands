@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-extended-commands` will be documented in this file.
 
+## Unreleased
+
+- Drop Laravel 11 support. Laravel 12 or 13 is now required.
+
 ## 1.6.0 - 2026-07-27
 
 ### What's Changed
