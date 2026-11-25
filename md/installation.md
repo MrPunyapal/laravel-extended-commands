@@ -2,8 +2,8 @@
 
 ## Requirements
 
-- PHP `^8.3`, `^8.4`, or `^8.5`
-- Laravel 12 or 13
+- PHP `^8.3`, `^8.4`, `^8.5`, or `^8.6`
+- Laravel 12 or 13 (PHP 8.6 requires Laravel 13.44 or later)
 
 ## Install the package
 
